@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cocoon-plugin-audiorec-android"
+    version="2.0.0">
+
+    <name>Cocoon Android AudioRec plugin</name>
+    <description>Cocoon plugin audio recording support.</description>
+    <license>Copyright Ludei</license>
+    <keywords>cordova, ludei, cocoon, application</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <engines>
+      <engine name="cordova-android" version=">=7" />
+      <engine name="cordova-plugman" version=">=4.2.0" />
+    </engines>
+
+    <platform name="android">
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+        </config-file>
+
+        <hook type="after_plugin_install" src="hooks/after_plugin_install.js" />
+
+        <source-file src="src/LudeiExtensionAudioRec.jar" target-dir="libs" framework="true" />
+    </platform>
+</plugin>
